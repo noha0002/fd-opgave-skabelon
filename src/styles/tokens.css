@@ -37,4 +37,22 @@
 
 /* ==== Typography ==== */
 
+:root {
+
+  --step--3: 18px;
+  --step--2: 17.33px;
+  --step--1: 16px;
+  --step-0: 25px;
+  --step-1: 30px;
+  --step-2: 35px;
+  --step-3: 40px;
+  --step-4: 45px;
+  --step-5: 50px;
+  --step-6: 60px;
+  
+  --lh-text: 1.2;
+  --lh-heading: 1.6;
+  
+}
+
 /* ==== Border Radii ==== */
