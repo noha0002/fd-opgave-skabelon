@@ -27,10 +27,11 @@ const { sectionTitle, sectionHeading, sectionParagraph } = Astro.props;
     gap: 17px;
   }
 
-  p {
+  section > p {
     font-size: var(--step--1);
     color: var(--color-text);
     text-transform: uppercase;
+    letter-spacing: 14.5%;
   }
 
   h2 {
@@ -39,7 +40,7 @@ const { sectionTitle, sectionHeading, sectionParagraph } = Astro.props;
     font-weight: 600;
   }
 
-  h2 + p {
+  div > p {
     font-size: var(--step--3);
     color: var(--color-text-muted);
     text-transform: none;

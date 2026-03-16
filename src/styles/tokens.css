@@ -43,7 +43,8 @@
 /* ==== Typography ==== */
 
 :root {
-
+  
+  --step--4: 20px;
   --step--3: 18px;
   --step--2: 17.33px;
   --step--1: 16px;
