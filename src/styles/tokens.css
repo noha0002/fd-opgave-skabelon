@@ -54,7 +54,11 @@
   --step-4: 45px;
   --step-5: 50px;
   --step-6: 60px; 
-  --font-cabin: 'Cabin', sans-serif;
 }
 
 /* ==== Border Radii ==== */
+
+:root {
+  --border-radius: 42px;
+  
+}

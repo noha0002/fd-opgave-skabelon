@@ -1,1 +1,11 @@
 /* Globale styles her */
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cabin', sans-serif;
+}
+
+p {
+    font-family: 'Lato';
+}
