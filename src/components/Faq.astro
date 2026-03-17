@@ -1,0 +1,115 @@
+---
+import PlusIcon from "@icons/plus.svg";
+// import faq from "@data/faq.json";
+const { exclusive, ...props } = Astro.props;
+const { id, question, answer, linkBlock } = props;
+---
+
+<details {id} {...exclusive ? { name: "faq" } : {}}>
+  <summary>
+    <span>
+      {question}
+      <PlusIcon />
+    </span>
+  </summary>
+
+  <div class="answer">
+    <p set:html={answer} />
+    {
+      linkBlock && (
+        <a class="link-block" href={linkBlock.url} target="_blank">
+          {linkBlock.label}
+        </a>
+      )
+    }
+  </div>
+</details>
+
+<style>
+  details {
+    color: var(--color-surface-secondary);
+    border-bottom: 1px solid #dadada;
+
+    summary {
+      font-weight: 700;
+      color: #181818;
+      text-wrap: revert;
+      user-select: none;
+      cursor: pointer;
+
+      &::marker,
+      &::-webkit-details-marker {
+        content: "";
+        display: none;
+      }
+
+      span {
+        border: none;
+        text-align: start;
+        padding: 0;
+        inline-size: 100%;
+        padding-block: 1rlh;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        svg {
+          inline-size: auto;
+          height: 1lh;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .answer {
+      color: #595566;
+
+      > * + * {
+        margin-top: 1em;
+      }
+
+      :last-child {
+        padding-block-end: 1rlh;
+      }
+
+      .link-block {
+        display: block;
+      }
+    }
+  }
+
+  summary::after {
+    content: "";
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 3s ease;
+    transform-origin: center;
+  }
+
+  details {
+    --r: 0deg;
+  }
+
+  details[open] {
+    --r: z 90deg;
+  }
+
+  summary::after {
+    transform: rotate(var(--r));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    summary::after {
+      transition: none;
+    }
+  }
+</style>
+
+<!-- 
+
+import FaqContainer from "@components/FaqContainer.astro";
+import faqData from "@data/faq.json";
+
+<FaqContainer data={faqData} exclusive={true} /> 
+
+-->
