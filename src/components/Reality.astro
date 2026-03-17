@@ -3,6 +3,7 @@ import ExpectCard from "./ExpectCard.astro";
 import { Image } from "astro:assets";
 import img1 from "@assets/images/Image.png";
 import checkmark from "@icons/checkmark.svg";
+import RealityCard from "./RealityCard.astro";
 ---
 
 <section>
@@ -27,9 +28,31 @@ import checkmark from "@icons/checkmark.svg";
     </div>
     <Image class="img" src={img1} alt="CEO" />
   </div>
+  <div class="grid2">
+    <div>
+      <RealityCard RealityNum="1128+" RealityTiny="Successful Work" />
+    </div>
+    <div>
+      <RealityCard RealityNum="908+" RealityTiny="Team member" />
+    </div>
+    <div>
+      <RealityCard RealityNum="258+" RealityTiny="Happy Customers" />
+    </div>
+    <div>
+      <RealityCard RealityNum="564+" RealityTiny="Creative Idea" />
+    </div>
+  </div>
 </section>
 
 <style>
+  .grid2 {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+   justify-content: center;
+   margin-top: 5%;
+    
+  }
   section {
     margin-top: 8rlh;
     margin-bottom: 8rlh;
@@ -59,7 +82,7 @@ import checkmark from "@icons/checkmark.svg";
 
   .together p {
     margin-top: 20px;
-   max-width: 500px;
+    max-width: 500px;
   }
   .together {
     margin-left: 20%;
