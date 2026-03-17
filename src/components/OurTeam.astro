@@ -1,0 +1,76 @@
+---
+import OurTeamCard from "./OurTeamCard.astro";
+import ExpectCard from "./ExpectCard.astro";
+import { Image } from "astro:assets";
+import img1 from "@assets/images/ceo2.png";
+import img2 from "@assets/images/1.jpg";
+---
+
+<section>
+  <div>
+    <ExpectCard
+      FirstTitle="OUR TEAM"
+      HovedTitle="We champion the bold"
+      Information="Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction."
+    />
+    <div class="button">
+      <button> Meet the Team </button>
+    </div>
+  </div>
+  <div class="assemble">
+    <div class="team">
+      <Image src={img1} alt="check" />
+      <OurTeamCard
+        NameIntro="Sarah Jasmine"
+        IDIntro="CEO at Company"
+        Introduction="Driving innovation and leadership with a focus on strategic growth and impactful decisions."
+      />
+    </div>
+
+    <div class="team">
+      <Image src={img2} alt="check" />
+      <OurTeamCard
+        NameIntro="John Carter"
+        IDIntro="Manager"
+        Introduction="Expert in operational efficiency, ensuring smooth processes and exceptional team performance."
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .button {
+    display: flex;
+    justify-content: start;
+    margin-top: 5%;
+    color: white;
+  }
+
+  button {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+  }
+  section > div:first-of-type {
+    margin-top: 5%;
+  }
+  section {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+    gap: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  .assemble {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+  }
+  .team {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+</style>
