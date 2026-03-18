@@ -1,0 +1,155 @@
+---
+import HeroTwoCard from "./HeroTwoCard.astro";
+import ExpectCard from "./ExpectCard.astro";
+import ConsultorsCard from "./ConsultorsCard.astro";
+import insta from "@icons/instagram.svg";
+import facebook from "@icons/facebook.svg";
+import boss from "@assets/images/ceo2.png";
+import img1 from "@assets/images/1.jpg";
+import img2 from "@assets/images/2.png";
+import img3 from "@assets/images/3.png";
+import img4 from "@assets/images/4.png";
+import img5 from "@assets/images/5.png";
+import { Image } from "astro:assets";
+---
+
+<section>
+  <div class="hero">
+    <HeroTwoCard
+      HeroTitleSmall="ABOUT"
+      HeroTitle="Igniting Innovation"
+      HeroInformation="Our strength lies in the collaboration between our talented teams and esteemed clients. We cultivate a workplace that champions innovation, promotes peak performance, and guarantees client satisfaction."
+    />
+  </div>
+  <div>
+    <div class="card">
+      <ExpectCard
+        HovedTitle="What To Expect"
+        Information="Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals."
+      />
+    </div>
+    <div class="grid-3">
+      <div>
+        <div class="image-wrapper">
+          <Image src={boss} alt="ceo" />
+          <p class="overlay-text">CEO at Company</p>
+        </div>
+        <ConsultorsCard
+          ConsName="Sarah Jasmine"
+          ConsIntroduction="Driving innovation and leadership with a focus on strategic growth and impactful decisions."
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+      <div>
+        <div class="image-wrapper">
+          <Image src={img1} alt="ceo" />
+          <p class="overlay-text">Manager</p>
+        </div>
+        <ConsultorsCard
+          ConsName="John Carter"
+          ConsIntroduction="Expert in operational efficiency, ensuring smooth processes and exceptional team performance."
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+      <div>
+        <div class="image-wrapper">
+          <Image src={img2} alt="ceo" />
+          <p class="overlay-text">Visionary</p>
+        </div>
+        <ConsultorsCard
+          ConsName="Daisy Stella"
+          ConsIntroduction="Inspiring creative solutions and forward-thinking approaches for groundbreaking projects."
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+      <div>
+        <div class="image-wrapper">
+          <Image src={img3} alt="ceo" />
+          <p class="overlay-text">Strategist</p>
+        </div>
+        <ConsultorsCard
+          ConsName="Maya Elizabeth"
+          ConsIntroduction="Crafting tailored strategies to empower business success and maximize market potential."
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+      <div>
+        <div class="image-wrapper">
+          <Image src={img4} alt="ceo" />
+          <p class="overlay-text">Director</p>
+        </div>
+        <ConsultorsCard
+          ConsName="Ryan Jackson"
+          ConsIntroduction="Leading with vision and precision to align organizational goals with long-term growth."
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+      <div>
+        <div class="image-wrapper">
+          <Image src={img5} alt="ceo" />
+          <p class="overlay-text">President</p>
+        </div>
+        <ConsultorsCard
+          ConsName="Lilly Victoria"
+          ConsIntroduction="Championing collaboration and excellence to drive meaningful change and success."
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    margin-left: 25%;
+    margin-bottom: 4%;
+    margin-top: 4%;
+  }
+  .hero {
+    background-color: #f9fafb;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50%;
+    margin: 0 auto;
+    gap: 5%;
+    margin-bottom: 5%;
+  }
+
+  .grid-3 img {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+  }
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 80%;
+    left: 43%;
+    color: white;
+    background: black;
+    padding: 7px;
+    border-radius: 20px;
+    width: 55%;
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+</style>
