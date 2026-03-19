@@ -13,6 +13,7 @@ const { data } = Astro.props;
 <article>
   <section>
     <img src={data.img} alt={data.title} />
+    <!-- {data.img} -->
     <div>
       <Face />
       <Insta />
@@ -31,7 +32,7 @@ const { data } = Astro.props;
     </section>
 
     <section>
-      <h2>Past Experience</h2>
+      <h1>Past Experience</h1>
       <p>{data.past_experience}</p>
     </section>
   </div>
@@ -82,6 +83,27 @@ section:first-child {
 
 h1 {
     font-size: 35px;
+    font-weight: 900;
 }
+h5 {
+    color: #5A606F;
+    font-size: 20px;
+}
+
+p {
+   color: #5A606F;
+    font-size: 16px; 
+    max-width: 633px;
+}
+
+article > div {
+
+    display:flex;
+    flex-direction:column;
+    gap:60px;
+}
+ div > section > div {
+}
+
 
 </style>
