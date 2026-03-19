@@ -1,0 +1,87 @@
+---
+import Face from "@icons/facebook.svg";
+import Insta from "@icons/instagram.svg";
+import Twit from "@icons/twitter.svg";
+import In from "@icons/linkedin.svg";
+
+// import employees from "@data/employees.json";
+// const { name, title, description_long, past_experience, img, social_links } =
+//   employees;
+const { data } = Astro.props;
+---
+
+<article>
+  <section>
+    <img src={data.img} alt={data.title} />
+    <div>
+      <Face />
+      <Insta />
+      <Twit />
+      <In />
+    </div>
+  </section>
+
+  <div>
+    <section>
+      <div>
+        <h1>{data.name}</h1>
+        <h5>{data.title}</h5>
+      </div>
+      <p>{data.description_long}</p>
+    </section>
+
+    <section>
+      <h2>Past Experience</h2>
+      <p>{data.past_experience}</p>
+    </section>
+  </div>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: row;
+    gap: 89px;
+
+    min-height: 100vh;
+    max-width: 1200px;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  img {
+    max-width: 478px;
+    max-height: 504px;
+    position: relative;
+    z-index: 1;
+  }
+  article > section::before {
+    content: "";
+    position: absolute;
+    width: 233px;
+    height: 164px;
+    background-color: var(--color-ui-secondary);
+    border-radius: 20px;
+    top: 400px;
+    right: 72%;
+    z-index: -1;
+  }
+
+  img ~ div {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+section:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+</style>

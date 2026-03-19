@@ -1,0 +1,21 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Newsletter from "@components/sections/Newsletter.astro";
+import Employee from "@components/sections/employee.astro";
+import employees from "@data/employees.json";
+
+export async function getStaticPaths() {
+  return employees.map((person) => ({
+    params: { slug: person.slug },
+    props: { employee: person }
+  }));
+}
+
+const { slug } = Astro.params;
+const employee = employees.find((e) => e.slug === slug);
+---
+
+<Layout title={employee.name}>
+  <Employee data={employee} />
+  <Newsletter />
+</Layout>
