@@ -11,6 +11,12 @@ import img3 from "@assets/images/3.png";
 import img4 from "@assets/images/4.png";
 import img5 from "@assets/images/5.png";
 import employees from "@data/employees.json";
+import img1 from "@data/images/john.webp";
+import img2 from "@data/images/daisy.webp";
+import img3 from "@data/images/maya.webp";
+import img4 from "@data/images/ryan.webp";
+import img5 from "@data/images/lilly.webp";
+import { Image } from "astro:assets";
 ---
 
 <section>
@@ -33,6 +39,9 @@ import employees from "@data/employees.json";
       {employees.map((person) => (
       <div>
         <a href={`/consultors/${person.slug}`}>
+    <div class="grid-wrapper">
+      <div class="grid-3">
+        <div>
           <div class="image-wrapper" id="openBtn1">
             <img src={person.img} alt={person.title} />
             <p class="overlay-text">{person.title}</p>
@@ -47,6 +56,81 @@ import employees from "@data/employees.json";
       </div>
       ))}  
   </div> 
+          <ConsultorsCard
+            ConsName="Sarah Jasmine"
+            ConsIntroduction="Driving innovation and leadership with a focus on strategic growth and impactful decisions."
+            insta={insta}
+            facebook={facebook}
+          />
+        </div>
+
+        <div>
+          <div class="image-wrapper" id="openBtn2">
+            <Image src={img1} alt="Manager" />
+            <p class="overlay-text">Manager</p>
+          </div>
+          <ConsultorsCard
+            ConsName="John Carter"
+            ConsIntroduction="Expert in operational efficiency, ensuring smooth processes and exceptional team performance."
+            insta={insta}
+            facebook={facebook}
+          />
+        </div>
+
+        <div>
+          <div class="image-wrapper" id="openBtn3">
+            <Image src={img2} alt="Visionary" />
+            <p class="overlay-text">Visionary</p>
+          </div>
+          <ConsultorsCard
+            ConsName="Daisy Stella"
+            ConsIntroduction="Inspiring creative solutions and forward-thinking approaches for groundbreaking projects."
+            insta={insta}
+            facebook={facebook}
+          />
+        </div>
+
+        <div>
+          <div class="image-wrapper" id="openBtn4">
+            <Image src={img3} alt="Strategist" />
+            <p class="overlay-text">Strategist</p>
+          </div>
+          <ConsultorsCard
+            ConsName="Maya Elizabeth"
+            ConsIntroduction="Crafting tailored strategies to empower business success and maximize market potential."
+            insta={insta}
+            facebook={facebook}
+          />
+        </div>
+
+        <div>
+          <div class="image-wrapper" id="openBtn5">
+            <Image src={img4} alt="Director" />
+            <p class="overlay-text">Director</p>
+          </div>
+          <ConsultorsCard
+            ConsName="Ryan Jackson"
+            ConsIntroduction="Leading with vision and precision to align organizational goals with long-term growth."
+            insta={insta}
+            facebook={facebook}
+          />
+        </div>
+
+        <div>
+          <div class="image-wrapper" id="openBtn6">
+            <Image src={img5} alt="President" />
+            <p class="overlay-text">President</p>
+          </div>
+          <ConsultorsCard
+            ConsName="Lilly Victoria"
+            ConsIntroduction="Championing collaboration and excellence to drive meaningful change and success."
+            insta={insta}
+            facebook={facebook}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 
   <style>
     .card {
@@ -61,6 +145,10 @@ import employees from "@data/employees.json";
       justify-content: center;
       align-items: center;
     }
+    .grid-wrapper {
+      container-type: inline-size;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -76,6 +164,31 @@ import employees from "@data/employees.json";
       /* object-fit: cover; */
       /* display: block; */
       border-radius: 20px;
+      gap: 5%;
+      margin-bottom: 5%;
+    }
+
+    @container (width < 600px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 2%;
+        margin-bottom: 50%;
+      }
+    }
+    @container (width >= 2000px) {
+      .grid-3 {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 3%;
+        width: 90%;
+      }
+    }
+
+    .grid-3 img {
+      width: 300px;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
     }
     .image-wrapper {
       position: relative;

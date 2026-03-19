@@ -61,16 +61,25 @@ import img2 from "@assets/images/1.jpg";
     gap: 5%;
     margin-top: 10%;
     margin-bottom: 10%;
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
   }
   .assemble {
     display: flex;
     flex-direction: column;
     gap: 50px;
     align-items: flex-start;
+    @media (max-width: 600px) {
+      margin-top: 5%;
+    }
   }
   .team {
     display: flex;
     gap: 8px;
     align-items: flex-start;
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
   }
 </style>
