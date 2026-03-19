@@ -48,20 +48,24 @@ import RealityCard from "./RealityCard.astro";
   .grid2 {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10%;
-   justify-content: center;
-   margin-top: 5%;
-    
+    justify-content: center;
+    margin-top: 5%;
   }
   section {
     margin-top: 8rlh;
     margin-bottom: 8rlh;
     position: relative;
+    @media (max-width: 600px) {
+      margin-bottom: 4rlh;
+      margin-top: 4rlh;
+    }
   }
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
   .grid::before {
     content: "";
@@ -73,11 +77,18 @@ import RealityCard from "./RealityCard.astro";
     top: -38px;
     right: 15%;
     z-index: 0;
+    @media (max-width: 600px) {
+      background: transparent;
+    }
   }
+
   .check {
     display: flex;
     gap: 8px;
     align-items: flex-start;
+    @media (max-width: 500px) {
+      transform: translateX(-10%);
+    }
   }
 
   .together p {
@@ -90,8 +101,12 @@ import RealityCard from "./RealityCard.astro";
 
   .img {
     border-radius: 20px;
-    border-radius: 20px;
     position: relative;
     z-index: 1;
+
+    @media (max-width: 500px) {
+      width: 50%;
+      margin: 18px auto;
+    }
   }
 </style>

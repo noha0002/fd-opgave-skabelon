@@ -14,16 +14,17 @@ const { FirstTitle, HovedTitle, Information } = Astro.props;
     font-weight: 800;
     margin-top: var(--space-s);
     margin-bottom: 2%;
+    @media (max-width: 600px) {
+      margin-top: 4%;
+      transform: translateX(-10%);
+    }
   }
   p {
     width: 370px;
     text-align: justify;
-  }
-
-  @media (width < 600px) {
-    p {
-      width: 250px;
-      
+    @media (max-width: 600px) {
+      margin-top: 4%;
+      transform: translateX(-10%);
     }
   }
 </style>

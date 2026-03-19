@@ -21,7 +21,7 @@ import ArrowRight from "@icons/arrow--right.svg";
     <div class="button">
       <button> Get in Touch </button>
     </div>
-    <section>
+    <section class="value-grid">
       <ValuesCard
         ScrollingTitle="Creative Ideas"
         ScrollingBeskrivelse="Explore innovative strategies tailored to your goals. Unlock unique solutions that inspire growth and creativity. Drive impactful change."
@@ -80,13 +80,16 @@ import ArrowRight from "@icons/arrow--right.svg";
     padding-top: 5%;
     color: white;
   }
-  section {
+  .value-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 3%;
     width: 80%;
     margin-left: 15%;
     padding-bottom: 5%;
+    @media (max-width: 600px) {
+     grid-template-columns: 1fr;
+    }
   }
 
   .icon-bg {

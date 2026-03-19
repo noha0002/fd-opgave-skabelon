@@ -29,13 +29,12 @@ import right from "@icons/arrow--right.svg";
           <Image src={right} alt="Financial Ratios" />
         </button>
       </div>
-      <section>
+      <section class="scroll-grid">
         <ScrollingCard
           ScrollingTitle="The Balance Sheet"
           ScrollingBeskrivelse="The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time."
         >
           <Image src={cal} alt="Balance Sheet" />
-         
         </ScrollingCard>
 
         <ScrollingCard
@@ -92,7 +91,7 @@ import right from "@icons/arrow--right.svg";
     margin-left: 20%;
     padding-top: 5%;
   }
-  section {
+  .scroll-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 5%;
