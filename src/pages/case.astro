@@ -1,10 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import CaseStudyArticle from "@components/CaseStudyArticle.astro";
+import CaseBanner from "@components/CaseBanner.astro";
+import Newsletter from "@components/sections/Newsletter.astro";
 ---
 
-<Layout>
+<Layout title="Case Study">
   <!-- Banner -->
-
+  <CaseBanner />
   <CaseStudyArticle />
+  <Newsletter />
 </Layout>

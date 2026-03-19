@@ -4,11 +4,16 @@ import HeroTwo from "@components/HeroTwo.astro";
 import Reality from "@components/Reality.astro";
 import Principles from "@components/Principles.astro";
 import OurTeam from "@components/OurTeam.astro";
+import FaqContainer from "@components/FaqContainer.astro";
+import faqData from "@data/faq.json";
+import Newsletter from "@components/sections/Newsletter.astro";
 ---
 
-<Layout title="Home">
+<Layout title="About">
   <HeroTwo />
   <Reality />
   <Principles />
   <OurTeam />
+  <FaqContainer data={faqData} exclusive={true} />
+  <Newsletter />
 </Layout>

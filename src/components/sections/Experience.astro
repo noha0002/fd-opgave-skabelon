@@ -26,100 +26,115 @@ import experience from "@data/experience.json";
       </div>
     </article>
   </div>
-
-  <style>
-    .full-bleed {
-      background: var(--color-surface-highlight);
-      display: grid;
-      grid-template-columns:
-        [full-start] minmax(1rem, 1fr)
-        [content-start] minmax(0, 1200px)
-        [content-end] minmax(1rem, 1fr)
-        [full-end];
-    }
-
-    .content {
-      grid-column: content-start / content-end;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 89px;
-
-      min-height: 528.42px;
-      align-items: center;
-      color: var(--color-text);
-    }
-
-    article {
-      display: flex;
-      gap: 50px;
-    }
-    .chart {
-      width: 185.87px;
-      height: 185.87px;
-      border-radius: 50%;
-
-      justify-content: center;
-    }
-    .stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-    }
-    h4 {
-      font-size: var(--step-0);
-      font-weight: 500;
-    }
-
-    @property --animatedNumber {
-      syntax: "<number>";
-      initial-value: 0;
-      inherits: true;
-    }
-
-    .chart {
-      --percentage: calc(var(--animatedNumber) * 1%);
-      --bd: 6px;
-      position: relative;
-      border: var(--bd) solid #0000;
-      background:
-        radial-gradient(circle at 50% calc(var(--bd) / 2), #0000 0) border-box,
-        linear-gradient(var(--color-surface-highlight)) padding-box,
-        conic-gradient(#fff var(--percentage), #daae3c 0) border-box;
-
-      display: grid;
-      container: stat / inline-size;
-      &::after {
-        counter-reset: val round(var(--animatedNumber));
-        grid-area: 1/1;
-        content: counter(val) "%";
-        place-self: center;
-        font-size: var(--step-5);
-        font-variant-numeric: tabular-nums;
-        font-feature-settings: "tnum";
-        font-weight: 700;
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        width: calc(var(--bd) * 2);
-        aspect-ratio: 1;
-        border-radius: calc(infinity * 1px);
-        background: #030712;
-        offset-path: border-box;
-        offset-distance: var(--percentage);
-        offset-anchor: 50% calc(50% - var(--bd) / 2);
-      }
-    }
-
-    .chart {
-      --animatedNumber: 0;
-      animation: animateNumber 2s forwards;
-    }
-    @keyframes animateNumber {
-      to {
-        --animatedNumber: var(--value);
-      }
-    }
-  </style>
 </section>
+
+<style>
+  .full-bleed {
+    background: var(--color-surface-highlight);
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(1rem, 1fr)
+      [content-start] minmax(0, 1200px)
+      [content-end] minmax(1rem, 1fr)
+      [full-end];
+  }
+
+  .content {
+    grid-column: content-start / content-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 89px;
+
+    min-height: 528.42px;
+    align-items: center;
+    color: var(--color-text);
+  }
+
+  article {
+    display: flex;
+    gap: 50px;
+  }
+  .chart {
+    width: 185.87px;
+    height: 185.87px;
+    border-radius: 50%;
+
+    justify-content: center;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  h4 {
+    font-size: var(--step-0);
+    font-weight: 500;
+  }
+
+  @property --animatedNumber {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+  }
+
+  .chart {
+    --percentage: calc(var(--animatedNumber) * 1%);
+    --bd: 6px;
+    position: relative;
+    border: var(--bd) solid #0000;
+    background:
+      radial-gradient(circle at 50% calc(var(--bd) / 2), #0000 0) border-box,
+      linear-gradient(var(--color-surface-highlight)) padding-box,
+      conic-gradient(#fff var(--percentage), #daae3c 0) border-box;
+
+    display: grid;
+    container: stat / inline-size;
+    &::after {
+      counter-reset: val round(var(--animatedNumber));
+      grid-area: 1/1;
+      content: counter(val) "%";
+      place-self: center;
+      font-size: var(--step-5);
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
+      font-weight: 700;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(var(--bd) * 2);
+      aspect-ratio: 1;
+      border-radius: calc(infinity * 1px);
+      background: #030712;
+      offset-path: border-box;
+      offset-distance: var(--percentage);
+      offset-anchor: 50% calc(50% - var(--bd) / 2);
+    }
+  }
+
+  .chart {
+    --animatedNumber: 0;
+    animation: animateNumber 4s forwards;
+  }
+  @keyframes animateNumber {
+    to {
+      --animatedNumber: var(--value);
+    }
+  }
+
+  /* @supports not (offset-path: path("M0,0 L1,1")) {
+    .chart {
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      background: var(--color-surface-highlight);
+      border: 6px solid #daae3c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--step-5);
+      font-weight: 700;
+    }
+  } */
+</style>
