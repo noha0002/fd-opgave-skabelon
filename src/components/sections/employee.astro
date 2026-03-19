@@ -75,35 +75,72 @@ const { data } = Astro.props;
     justify-content: center;
   }
 
-section:first-child {
+  section:first-child {
     display: flex;
     flex-direction: column;
     gap: 16px;
-}
+  }
 
-h1 {
+  h1 {
     font-size: 35px;
     font-weight: 900;
-}
-h5 {
-    color: #5A606F;
+  }
+  h5 {
+    color: #5a606f;
     font-size: 20px;
-}
+  }
 
-p {
-   color: #5A606F;
-    font-size: 16px; 
+  p {
+    color: #5a606f;
+    font-size: 16px;
     max-width: 633px;
-}
+  }
 
-article > div {
+  article > div {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
 
-    display:flex;
-    flex-direction:column;
-    gap:60px;
-}
- div > section > div {
-}
+  @media (max-width: 768px) {
+    article {
+      flex-direction: column;
+      gap: 40px;
+      padding-inline: 1rem;
+      min-height: auto;
+      text-align: center;
+    }
 
+    article > section::before {
+      display: none;
+    }
 
+    img {
+      max-width: 80%;
+      height: auto;
+      margin-inline: auto;
+    }
+
+    img ~ div {
+      justify-content: center;
+      gap: 20px;
+    }
+
+    article > div {
+      gap: 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+    p {
+      max-width: 100%;
+      font-size: 15px;
+    }
+  }
 </style>

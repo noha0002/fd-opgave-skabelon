@@ -7,8 +7,6 @@ import facebook from "@icons/facebook.svg";
 
 import employees from "@data/employees.json";
 import { Image } from "astro:assets";
-import * as imgs from "@data/images";
-
 ---
 
 <section>
@@ -27,129 +25,131 @@ import * as imgs from "@data/images";
       />
     </div>
 
-    
-    {/* <div class="grid-wrapper"></div>  */}
-    <div class="grid-3">
-      {employees.map((person) => (
-        
-      <div>
-        <a href={`/consultors/${person.slug}`}>
-          <div class="image-wrapper" id="openBtn1">
-            <img src={person.img} alt={person.title} />
-            <p class="overlay-text">{person.title}</p>
-          </div>
-        </a>
-        <ConsultorsCard
-          ConsName={person.name}
-          ConsIntroduction={person.description}
-          insta={insta}
-          facebook={facebook}
-        />
+    <div class="grid-wrapper">
+      <div class="grid-3">
+        {
+          employees.map((person) => (
+            <div>
+              <a href={`/consultors/${person.slug}`}>
+                <div class="image-wrapper" id="openBtn1">
+                  <img src={person.img} alt={person.title} />
+                  <p class="overlay-text">{person.title}</p>
+                </div>
+              </a>
+              <ConsultorsCard
+                ConsName={person.name}
+                ConsIntroduction={person.description}
+                insta={insta}
+                facebook={facebook}
+              />
+            </div>
+          ))
+        }
       </div>
-      ))}  
-  </div>   
+    </div>
 
-  <style>
-    .card {
-      margin-left: 25%;
-      margin-bottom: 4%;
-      margin-top: 4%;
-    }
-    .hero {
-      background-color: #f9fafb;
-      padding: 10%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .grid-wrapper {
-      container-type: inline-size;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      width: 50%;
-      margin: 0 auto;
-      gap: 51px;
-      margin-bottom: 5%;
-    }
-
-    .grid-3 img {
-      max-width: 366px;
-      max-height: 392px;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-      gap: 5%;
-      margin-bottom: 5%;
-    }
-
-    @container (width < 600px) {
-      .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 2%;
-        margin-bottom: 50%;
+    <style>
+      .card {
+        margin-left: 25%;
+        margin-bottom: 4%;
+        margin-top: 4%;
       }
-    }
-    @container (width >= 2000px) {
-      .grid-3 {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 3%;
-        width: 90%;
+      .hero {
+        background-color: #f9fafb;
+        padding: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-    }
+      .grid-wrapper {
+        container-type: inline-size;
+      }
 
-    .grid-3 img {
-      width: 300px;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-      border-radius: 12px;
-    }
-    .image-wrapper {
-      position: relative;
-      display: inline-block;
-    }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 50%;
+        margin: 0 auto;
+        gap: 51px;
+        margin-bottom: 5%;
+      }
 
-    .overlay-text {
-      position: absolute;
-      top: 80%;
-      left: 43%;
-      color: white;
-      background: black;
-      padding: 7px;
-      border-radius: 20px;
-      width: 55%;
-      font-weight: bold;
-      font-size: 0.7rem;
-      text-align: center;
-    }
-  </style>
+      .grid-3 img {
+        max-width: 366px;
+        max-height: 392px;
+        object-fit: cover;
+        display: block;
+        border-radius: 20px;
+        gap: 5%;
+        margin-bottom: 5%;
+      }
 
-  <script type="module">
-    document.querySelector("#openBtn1").addEventListener("click", () => {
-      document.querySelector("#dialog1").showModal();
-    });
+      @container (width < 700px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+          gap: 2%;
+          margin-bottom: 50%;
+        }
+      }
+      @container (width >= 2000px) {
+        .grid-3 {
+          grid-template-columns: repeat(6, 1fr);
+          gap: 3%;
+          width: 90%;
+        }
+      }
 
-    document.querySelector("#openBtn2").addEventListener("click", () => {
-      document.querySelector("#dialog2").showModal();
-    });
+      .grid-3 img {
+        width: 300px;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
+      .image-wrapper {
+        position: relative;
+        display: inline-block;
+      }
 
-    document.querySelector("#openBtn3").addEventListener("click", () => {
-      document.querySelector("#dialog3").showModal();
-    });
+      .overlay-text {
+        position: absolute;
+        top: 80%;
+        left: 43%;
+        color: white;
+        background: black;
+        padding: 7px;
+        border-radius: 20px;
+        width: 55%;
+        font-weight: bold;
+        font-size: 0.7rem;
+        text-align: center;
+      }
+    </style>
 
-    document.querySelector("#openBtn4").addEventListener("click", () => {
-      document.querySelector("#dialog4").showModal();
-    });
+    <script type="module">
+      document.querySelector("#openBtn1").addEventListener("click", () => {
+        document.querySelector("#dialog1").showModal();
+      });
 
-    document.querySelector("#openBtn5").addEventListener("click", () => {
-      document.querySelector("#dialog5").showModal();
-    });
+      document.querySelector("#openBtn2").addEventListener("click", () => {
+        document.querySelector("#dialog2").showModal();
+      });
 
-    document.querySelector("#openBtn6").addEventListener("click", () => {
-      document.querySelector("#dialog6").showModal();
-    });
-  </script>
+      document.querySelector("#openBtn3").addEventListener("click", () => {
+        document.querySelector("#dialog3").showModal();
+      });
+
+      document.querySelector("#openBtn4").addEventListener("click", () => {
+        document.querySelector("#dialog4").showModal();
+      });
+
+      document.querySelector("#openBtn5").addEventListener("click", () => {
+        document.querySelector("#dialog5").showModal();
+      });
+
+      document.querySelector("#openBtn6").addEventListener("click", () => {
+        document.querySelector("#dialog6").showModal();
+      });
+    </script>
+  </div>
 </section>
