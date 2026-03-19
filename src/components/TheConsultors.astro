@@ -5,6 +5,12 @@ import ConsultorsCard from "./ConsultorsCard.astro";
 import insta from "@icons/instagram.svg";
 import facebook from "@icons/facebook.svg";
 import boss from "@assets/images/ceo2.png";
+import img1 from "@assets/images/1.jpg";
+import img2 from "@assets/images/2.png";
+import img3 from "@assets/images/3.png";
+import img4 from "@assets/images/4.png";
+import img5 from "@assets/images/5.png";
+import employees from "@data/employees.json";
 import img1 from "@data/images/john.webp";
 import img2 from "@data/images/daisy.webp";
 import img3 from "@data/images/maya.webp";
@@ -16,25 +22,40 @@ import { Image } from "astro:assets";
 <section>
   <div class="hero">
     <HeroTwoCard
-      HeroTitleSmall="ABOUT"
-      HeroTitle="Igniting Innovation"
-      HeroInformation="Our strength lies in the collaboration between our talented teams and esteemed clients. We cultivate a workplace that champions innovation, promotes peak performance, and guarantees client satisfaction."
+      HeroTitleSmall="TEAM"
+      HeroTitle="The Consultors"
+      HeroInformation="Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction."
     />
   </div>
   <div>
     <div class="card">
       <ExpectCard
-        HovedTitle="What To Expect"
-        Information="Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals."
+        HovedTitle="Meet Our Great Team"
+        Information="Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts."
       />
     </div>
+
+    <div class="grid-3">
+      {employees.map((person) => (
+      <div>
+        <a href={`/consultors/${person.slug}`}>
     <div class="grid-wrapper">
       <div class="grid-3">
         <div>
           <div class="image-wrapper" id="openBtn1">
-            <Image src={boss} alt="ceo" />
-            <p class="overlay-text">CEO at Company</p>
+            <img src={person.img} alt={person.title} />
+            <p class="overlay-text">{person.title}</p>
           </div>
+        </a>
+        <ConsultorsCard
+          ConsName={person.name}
+          ConsIntroduction={person.description}
+          insta={insta}
+          facebook={facebook}
+        />
+      </div>
+      ))}  
+  </div> 
           <ConsultorsCard
             ConsName="Sarah Jasmine"
             ConsIntroduction="Driving innovation and leadership with a focus on strategic growth and impactful decisions."
@@ -133,6 +154,16 @@ import { Image } from "astro:assets";
       grid-template-columns: repeat(3, 1fr);
       width: 50%;
       margin: 0 auto;
+      gap: 51px;
+      margin-bottom: 5%;
+    }
+
+    .grid-3 img {
+      max-width: 366px;
+      max-height: 392px;
+      /* object-fit: cover; */
+      /* display: block; */
+      border-radius: 20px;
       gap: 5%;
       margin-bottom: 5%;
     }
@@ -178,4 +209,30 @@ import { Image } from "astro:assets";
       text-align: center;
     }
   </style>
+
+  <script type="module">
+    document.querySelector("#openBtn1").addEventListener("click", () => {
+      document.querySelector("#dialog1").showModal();
+    });
+
+    document.querySelector("#openBtn2").addEventListener("click", () => {
+      document.querySelector("#dialog2").showModal();
+    });
+
+    document.querySelector("#openBtn3").addEventListener("click", () => {
+      document.querySelector("#dialog3").showModal();
+    });
+
+    document.querySelector("#openBtn4").addEventListener("click", () => {
+      document.querySelector("#dialog4").showModal();
+    });
+
+    document.querySelector("#openBtn5").addEventListener("click", () => {
+      document.querySelector("#dialog5").showModal();
+    });
+
+    document.querySelector("#openBtn6").addEventListener("click", () => {
+      document.querySelector("#dialog6").showModal();
+    });
+  </script>
 </section>
