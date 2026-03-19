@@ -5,11 +5,11 @@ import ConsultorsCard from "./ConsultorsCard.astro";
 import insta from "@icons/instagram.svg";
 import facebook from "@icons/facebook.svg";
 import boss from "@assets/images/ceo2.png";
-import img1 from "@assets/images/1.jpg";
-import img2 from "@assets/images/2.png";
-import img3 from "@assets/images/3.png";
-import img4 from "@assets/images/4.png";
-import img5 from "@assets/images/5.png";
+import img1 from "@data/images/john.webp";
+import img2 from "@data/images/daisy.webp";
+import img3 from "@data/images/maya.webp";
+import img4 from "@data/images/ryan.webp";
+import img5 from "@data/images/lilly.webp";
 import { Image } from "astro:assets";
 ---
 
@@ -28,9 +28,8 @@ import { Image } from "astro:assets";
         Information="Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals."
       />
     </div>
-
+    <div class="grid-wrapper">
       <div class="grid-3">
-      
         <div>
           <div class="image-wrapper" id="openBtn1">
             <Image src={boss} alt="ceo" />
@@ -42,14 +41,8 @@ import { Image } from "astro:assets";
             insta={insta}
             facebook={facebook}
           />
-          <dialog id="dialog1">
-            <h2>CEO Info</h2>
-            <p>Here is more about Sarah Jasmine...</p>
-            <form method="dialog"><button>LUK</button></form>
-          </dialog>
         </div>
 
-      
         <div>
           <div class="image-wrapper" id="openBtn2">
             <Image src={img1} alt="Manager" />
@@ -61,14 +54,8 @@ import { Image } from "astro:assets";
             insta={insta}
             facebook={facebook}
           />
-          <dialog id="dialog2">
-            <h2>Manager Info</h2>
-            <p>Here is more about John Carter...</p>
-            <form method="dialog"><button>LUK</button></form>
-          </dialog>
         </div>
 
-        
         <div>
           <div class="image-wrapper" id="openBtn3">
             <Image src={img2} alt="Visionary" />
@@ -80,14 +67,8 @@ import { Image } from "astro:assets";
             insta={insta}
             facebook={facebook}
           />
-          <dialog id="dialog3">
-            <h2>Visionary Info</h2>
-            <p>Here is more about Daisy Stella...</p>
-            <form method="dialog"><button>LUK</button></form>
-          </dialog>
         </div>
 
-       
         <div>
           <div class="image-wrapper" id="openBtn4">
             <Image src={img3} alt="Strategist" />
@@ -99,14 +80,8 @@ import { Image } from "astro:assets";
             insta={insta}
             facebook={facebook}
           />
-          <dialog id="dialog4">
-            <h2>Strategist Info</h2>
-            <p>Here is more about Maya Elizabeth...</p>
-            <form method="dialog"><button>LUK</button></form>
-          </dialog>
         </div>
 
-      
         <div>
           <div class="image-wrapper" id="openBtn5">
             <Image src={img4} alt="Director" />
@@ -118,14 +93,8 @@ import { Image } from "astro:assets";
             insta={insta}
             facebook={facebook}
           />
-          <dialog id="dialog5">
-            <h2>Director Info</h2>
-            <p>Here is more about Ryan Jackson...</p>
-            <form method="dialog"><button>LUK</button></form>
-          </dialog>
         </div>
 
-     
         <div>
           <div class="image-wrapper" id="openBtn6">
             <Image src={img5} alt="President" />
@@ -137,88 +106,76 @@ import { Image } from "astro:assets";
             insta={insta}
             facebook={facebook}
           />
-          <dialog id="dialog6">
-            <h2>President Info</h2>
-            <p>Here is more about Lilly Victoria...</p>
-            <form method="dialog"><button>LUK</button></form>
-          </dialog>
         </div>
       </div>
-    </section>
-
-    <style>
-      .card {
-        margin-left: 25%;
-        margin-bottom: 4%;
-        margin-top: 4%;
-      }
-      .hero {
-        background-color: #f9fafb;
-        padding: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        width: 50%;
-        margin: 0 auto;
-        gap: 5%;
-        margin-bottom: 5%;
-      }
-
-      .grid-3 img {
-        width: 300px;
-        height: 250px;
-        object-fit: cover;
-        display: block;
-        border-radius: 8px;
-      }
-      .image-wrapper {
-        position: relative;
-        display: inline-block;
-      }
-
-      .overlay-text {
-        position: absolute;
-        top: 80%;
-        left: 43%;
-        color: white;
-        background: black;
-        padding: 7px;
-        border-radius: 20px;
-        width: 55%;
-        font-weight: bold;
-        font-size: 0.7rem;
-        text-align: center;
-      }
-    </style>
-
-    <script type="module">
-      document.querySelector("#openBtn1").addEventListener("click", () => {
-        document.querySelector("#dialog1").showModal();
-      });
-
-      document.querySelector("#openBtn2").addEventListener("click", () => {
-        document.querySelector("#dialog2").showModal();
-      });
-
-      document.querySelector("#openBtn3").addEventListener("click", () => {
-        document.querySelector("#dialog3").showModal();
-      });
-
-      document.querySelector("#openBtn4").addEventListener("click", () => {
-        document.querySelector("#dialog4").showModal();
-      });
-
-      document.querySelector("#openBtn5").addEventListener("click", () => {
-        document.querySelector("#dialog5").showModal();
-      });
-
-      document.querySelector("#openBtn6").addEventListener("click", () => {
-        document.querySelector("#dialog6").showModal();
-      });
-    </script>
+    </div>
   </div>
+
+  <style>
+    .card {
+      margin-left: 25%;
+      margin-bottom: 4%;
+      margin-top: 4%;
+    }
+    .hero {
+      background-color: #f9fafb;
+      padding: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .grid-wrapper {
+      container-type: inline-size;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 50%;
+      margin: 0 auto;
+      gap: 5%;
+      margin-bottom: 5%;
+    }
+
+    @container (width < 600px) {
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 2%;
+        margin-bottom: 50%;
+      }
+    }
+    @container (width >= 2000px) {
+      .grid-3 {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 3%;
+        width: 90%;
+      }
+    }
+
+    .grid-3 img {
+      width: 300px;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 80%;
+      left: 43%;
+      color: white;
+      background: black;
+      padding: 7px;
+      border-radius: 20px;
+      width: 55%;
+      font-weight: bold;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+  </style>
 </section>
