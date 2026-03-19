@@ -123,7 +123,31 @@ import experience from "@data/experience.json";
     }
   }
 
-  /* @supports not (offset-path: path("M0,0 L1,1")) {
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      min-height: auto;
+      text-align: center;
+    }
+
+    article {
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .chart {
+      width: 140px;
+      height: 140px;
+    }
+
+    .stat {
+      gap: 20px;
+    }
+  }
+
+  @supports not (offset-path: path("M0,0 L1,1")) {
     .chart {
       width: 185px;
       height: 185px;
@@ -136,5 +160,5 @@ import experience from "@data/experience.json";
       font-size: var(--step-5);
       font-weight: 700;
     }
-  } */
+  }
 </style>

@@ -71,7 +71,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
 </article>
 
 <style>
- header > img {
+  header > img {
     border-radius: 42px;
   }
   section > img {
@@ -187,5 +187,56 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
     display: flex;
     flex-direction: column;
     gap: 38px;
+  }
+
+  @media (max-width: 768px) {
+    article {
+      padding-inline: 1rem;
+    }
+
+    header {
+      margin-top: 40px;
+    }
+
+    .case-details {
+      grid-template-columns: 1fr;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 30px 25px;
+      gap: 25px;
+      bottom: -80px;
+    }
+
+    dl {
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .button {
+      margin-left: 0;
+      justify-self: start;
+      width: fit-content;
+    }
+
+    .full-bleed {
+      margin-top: 140px;
+      margin-bottom: 120px;
+      padding-inline: 1rem;
+    }
+
+    .content {
+      gap: 24px;
+      max-width: 100%;
+    }
+
+    section:first-child {
+      margin-top: 40px;
+    }
+
+    section > img {
+      width: 100%;
+      height: auto;
+    }
   }
 </style>
