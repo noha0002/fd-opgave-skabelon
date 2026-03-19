@@ -52,11 +52,17 @@ import checkmark from "@icons/checkmark.svg";
     top: -38px;
     right: 73%;
     z-index: 0;
+    @media (max-width: 600px) {
+      background-color: transparent;
+    }
   }
   .check {
     display: flex;
     gap: 8px;
     align-items: flex-start;
+    @media (max-width: 600px) {
+      transform: translateX(-15%);
+    }
   }
 
   .together p {
